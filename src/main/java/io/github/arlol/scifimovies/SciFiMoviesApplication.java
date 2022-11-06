@@ -26,15 +26,25 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Document doc = Jsoup.connect("https://editorial.rottentomatoes.com/guide/best-sci-fi-movies-of-all-time/")
-				.timeout(30_000)
-				.get();
+		Document doc = Jsoup.connect(
+				"https://editorial.rottentomatoes.com/guide/best-sci-fi-movies-of-all-time/"
+		).timeout(30_000).get();
 		List<Movie> movies = doc.select("div.article_movie_title h2")
-				.stream().map(e -> {
-					return new Movie(extractTitle(e), extractYear(e), extractUrl(e), extractTomatoes(e));
-				}).filter(m -> m.getTitle().length() > 0).collect(Collectors.toList());
+				.stream()
+				.map(e -> {
+					return new Movie(
+							extractTitle(e),
+							extractYear(e),
+							extractUrl(e),
+							extractTomatoes(e)
+					);
+				})
+				.filter(m -> m.getTitle().length() > 0)
+				.collect(Collectors.toList());
 		for (Movie movie : movies) {
-			movieRepository.findByTitleAndYear(movie.getTitle(), movie.getYear()).ifPresent(existing -> movie.setId(existing.getId()));
+			movieRepository
+					.findByTitleAndYear(movie.getTitle(), movie.getYear())
+					.ifPresent(existing -> movie.setId(existing.getId()));
 			movieRepository.save(movie);
 		}
 		LOG.info("Imported these movies: {}", movies);
@@ -42,9 +52,9 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 
 	private String extractUrl(Element e) {
 		return e.selectFirst("a").attr("href");
-    }
+	}
 
-    private int extractTomatoes(Element e) {
+	private int extractTomatoes(Element e) {
 		String tomatoScore = e.selectFirst(".tMeterScore").text();
 		if (tomatoScore.length() == 0) {
 			return 0;

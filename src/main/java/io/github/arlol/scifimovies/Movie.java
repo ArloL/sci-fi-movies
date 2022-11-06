@@ -7,30 +7,30 @@ public class Movie {
 	@Id
 	private long id;
 	private String title;
-    private int year;
-    private String url;
-    private int tomatoes;
+	private int year;
+	private String url;
+	private int tomatoes;
 
-    public Movie() {
-    }
+	public Movie() {
+	}
 
 	public Movie(String title, int year, String url, int tomatoes) {
 		this.id = -1;
-        this.title = title;
-        this.year = year;
-        this.url = url;
-        this.tomatoes = tomatoes;
-    }
+		this.title = title;
+		this.year = year;
+		this.url = url;
+		this.tomatoes = tomatoes;
+	}
 
 	public Movie(long id, String title, int year, String url, int tomatoes) {
-        this.id = id;
-        this.title = title;
-        this.year = year;
-        this.url = url;
-        this.tomatoes = tomatoes;
-    }
+		this.id = id;
+		this.title = title;
+		this.year = year;
+		this.url = url;
+		this.tomatoes = tomatoes;
+	}
 
-    @Override
+	@Override
 	public String toString() {
 		return "Movie [title=" + title + ", year=" + year + "]";
 	}
@@ -55,24 +55,24 @@ public class Movie {
 		return year;
 	}
 
-    public void setYear(int year) {
-        this.year = year;
-    }
+	public void setYear(int year) {
+		this.year = year;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public int getTomatoes() {
-        return tomatoes;
-    }
+	public int getTomatoes() {
+		return tomatoes;
+	}
 
-    public void setTomatoes(int tomatoes) {
-        this.tomatoes = tomatoes;
-    }
+	public void setTomatoes(int tomatoes) {
+		this.tomatoes = tomatoes;
+	}
 
 }
