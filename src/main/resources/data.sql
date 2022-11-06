@@ -48,7 +48,7 @@ MERGE INTO "PUBLIC"."MOVIE" VALUES(47, 'Upgrade', 2018, FALSE, 'https://www.rott
 MERGE INTO "PUBLIC"."MOVIE" VALUES(48, 'Star Trek: First Contact', 1996, FALSE, 'https://www.rottentomatoes.com/m/star_trek_first_contact', 92);
 MERGE INTO "PUBLIC"."MOVIE" VALUES(49, 'The World''s End', 2013, TRUE, 'https://www.rottentomatoes.com/m/the_worlds_end', 89);
 MERGE INTO "PUBLIC"."MOVIE" VALUES(50, 'Invasion of the Body Snatchers', 1978, FALSE, 'https://www.rottentomatoes.com/m/1010679-invasion_of_the_body_snatchers', 92);
-MERGE INTO "PUBLIC"."MOVIE" VALUES(51, 'The Host', 2006, FALSE, 'https://www.rottentomatoes.com/m/the_host_2007', 93);
+MERGE INTO "PUBLIC"."MOVIE" VALUES(51, 'The Host', 2006, TRUE, 'https://www.rottentomatoes.com/m/the_host_2007', 93);
 MERGE INTO "PUBLIC"."MOVIE" VALUES(52, 'A Quiet Place', 2018, FALSE, 'https://www.rottentomatoes.com/m/a_quiet_place_2018', 96);
 MERGE INTO "PUBLIC"."MOVIE" VALUES(53, 'Star Wars: The Force Awakens', 2015, TRUE, 'https://www.rottentomatoes.com/m/star_wars_episode_vii_the_force_awakens', 93);
 MERGE INTO "PUBLIC"."MOVIE" VALUES(54, 'Repo Man', 1984, TRUE, 'https://www.rottentomatoes.com/m/repo_man', 98);
