@@ -61,7 +61,7 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 					return resultSet.getString(1);
 				}
 		).filter(s -> s.startsWith("INSERT")).toList();
-		Files.write(Paths.get("db/data.sql"), data);
+		Files.write(Paths.get("./src/main/resources/data.sql"), data);
 	}
 
 	private String extractUrl(Element e) {
