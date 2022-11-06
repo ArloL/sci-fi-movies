@@ -1,21 +1,26 @@
 package io.github.arlol.scifimovies;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
 public class SciFiMoviesApplication implements CommandLineRunner {
 
-	private static Logger LOG = LoggerFactory.getLogger("SampleLogger");
+	private static Logger LOG = LoggerFactory
+			.getLogger(SciFiMoviesApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(SciFiMoviesApplication.class, args);
@@ -23,6 +28,8 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 
 	@Autowired
 	MovieRepository movieRepository;
+	@Autowired
+	JdbcTemplate template;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -48,6 +55,16 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 			movieRepository.save(movie);
 		}
 		LOG.info("Imported these movies: {}", movies);
+		List<String> data = template.queryForStream(
+				"SCRIPT SIMPLE NOPASSWORDS NOSETTINGS TABLE movie",
+				(resultSet, rowNum) -> {
+					return resultSet.getString(1);
+				}
+		)
+				.filter(s -> s.startsWith("INSERT"))
+				.map(s -> s.replace("INSERT ", "MERGE "))
+				.toList();
+		Files.write(Paths.get("db/data.sql"), data);
 	}
 
 	private String extractUrl(Element e) {
