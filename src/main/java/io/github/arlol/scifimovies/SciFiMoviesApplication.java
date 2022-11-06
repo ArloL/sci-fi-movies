@@ -60,10 +60,7 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 				(resultSet, rowNum) -> {
 					return resultSet.getString(1);
 				}
-		)
-				.filter(s -> s.startsWith("INSERT"))
-				.map(s -> s.replace("INSERT ", "MERGE "))
-				.toList();
+		).filter(s -> s.startsWith("INSERT")).toList();
 		Files.write(Paths.get("db/data.sql"), data);
 	}
 
