@@ -17,18 +17,18 @@
 	<description>Demo project for Spring Boot</description>
 
 	<scm>
-        <connection>scm:git:https://github.com/ArloL/sci-fi-movies.git</connection>
-        <developerConnection>scm:git:https://github.com/ArloL/sci-fi-movies.git</developerConnection>
-        <tag>${sha1}</tag>
-        <url>https://github.com/ArloL/sci-fi-movies/</url>
-    </scm>
+		<connection>scm:git:https://github.com/ArloL/sci-fi-movies.git</connection>
+		<developerConnection>scm:git:https://github.com/ArloL/sci-fi-movies.git</developerConnection>
+		<tag>${sha1}</tag>
+		<url>https://github.com/ArloL/sci-fi-movies/</url>
+	</scm>
 
-    <licenses>
-        <license>
-            <name>MIT License</name>
-            <url>http://opensource.org/licenses/MIT</url>
-        </license>
-    </licenses>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
 
 	<properties>
 		<java.version>17</java.version>
