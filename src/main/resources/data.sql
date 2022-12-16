@@ -37,7 +37,7 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(36, 'The Day of the Triffids', 1963, FALSE, 
 INSERT INTO "PUBLIC"."MOVIE" VALUES(37, 'When Worlds Collide', 1951, FALSE, 'https://www.rottentomatoes.com/m/when_worlds_collide', 80);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(38, 'Sunshine', 2007, TRUE, 'https://www.rottentomatoes.com/m/sunshine', 76);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(39, 'Liquid Sky', 1982, FALSE, 'https://www.rottentomatoes.com/m/liquid_sky', 93);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(40, 'Dark Star', 1974, FALSE, 'https://www.rottentomatoes.com/m/dark_star', 76);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(40, 'Dark Star', 1974, FALSE, 'https://www.rottentomatoes.com/m/dark_star', 77);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(41, 'Open Your Eyes', 1997, FALSE, 'https://www.rottentomatoes.com/m/open_your_eyes_1999', 87);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(42, 'Paprika', 2006, TRUE, 'https://www.rottentomatoes.com/m/paprika', 85);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(43, 'Serenity', 2005, TRUE, 'https://www.rottentomatoes.com/m/serenity', 82);
@@ -65,7 +65,7 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(64, 'The Fly', 1986, FALSE, 'https://www.rot
 INSERT INTO "PUBLIC"."MOVIE" VALUES(65, 'Cloverfield', 2008, TRUE, 'https://www.rottentomatoes.com/m/cloverfield', 78);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(66, 'Men in Black', 1997, TRUE, 'https://www.rottentomatoes.com/m/men_in_black', 91);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(67, 'Tron', 1982, TRUE, 'https://www.rottentomatoes.com/m/tron', 72);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(68, 'Bumblebee', 2018, FALSE, 'https://www.rottentomatoes.com/m/bumblebee', 91);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(68, 'Bumblebee', 2018, TRUE, 'https://www.rottentomatoes.com/m/bumblebee', 91);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(69, 'Independence Day', 1996, TRUE, 'https://www.rottentomatoes.com/m/1071806-independence_day', 67);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(70, 'Barbarella', 1968, FALSE, 'https://www.rottentomatoes.com/m/barbarella', 74);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(71, 'Donnie Darko', 2001, TRUE, 'https://www.rottentomatoes.com/m/donnie_darko', 87);
