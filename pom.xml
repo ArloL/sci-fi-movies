@@ -17,10 +17,10 @@
 	<description>Demo project for Spring Boot</description>
 
 	<scm>
-		<connection>scm:git:https://github.com/ArloL/sci-fi-movies.git</connection>
-		<developerConnection>scm:git:https://github.com/ArloL/sci-fi-movies.git</developerConnection>
+		<connection>scm:git:https://github.com/ArloL/sci-fi-movies</connection>
+		<developerConnection>scm:git:https://github.com/ArloL/sci-fi-movies</developerConnection>
 		<tag>${sha1}</tag>
-		<url>https://github.com/ArloL/sci-fi-movies/</url>
+		<url>https://github.com/ArloL/sci-fi-movies</url>
 	</scm>
 
 	<licenses>
