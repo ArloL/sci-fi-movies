@@ -45,9 +45,9 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Turbo Kid', 2015, FALSE, 'https://
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'THX-1138', 1971, FALSE, 'https://www.rottentomatoes.com/m/thx_1138', 86);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Attack the Block', 2011, TRUE, 'https://www.rottentomatoes.com/m/attack_the_block', 91);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Upgrade', 2018, FALSE, 'https://www.rottentomatoes.com/m/upgrade_2018', 88);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Trek: First Contact', 1996, FALSE, 'https://www.rottentomatoes.com/m/star_trek_first_contact', 93);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Trek: First Contact', 1996, TRUE, 'https://www.rottentomatoes.com/m/star_trek_first_contact', 93);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'The World''s End', 2013, TRUE, 'https://www.rottentomatoes.com/m/the_worlds_end', 89);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Invasion of the Body Snatchers', 1978, FALSE, 'https://www.rottentomatoes.com/m/1010679-invasion_of_the_body_snatchers', 93);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Invasion of the Body Snatchers', 1978, TRUE, 'https://www.rottentomatoes.com/m/1010679-invasion_of_the_body_snatchers', 93);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'The Host', 2006, TRUE, 'https://www.rottentomatoes.com/m/the_host_2007', 93);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'A Quiet Place', 2018, FALSE, 'https://www.rottentomatoes.com/m/a_quiet_place_2018', 96);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Wars: The Force Awakens', 2015, TRUE, 'https://www.rottentomatoes.com/m/star_wars_episode_vii_the_force_awakens', 93);
@@ -88,7 +88,7 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Avatar', 2009, TRUE, 'https://www.
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Minority Report', 2002, TRUE, 'https://www.rottentomatoes.com/m/minority_report', 89);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Alphaville', 1965, FALSE, 'https://www.rottentomatoes.com/m/alphaville', 92);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Them!', 1954, FALSE, 'https://www.rottentomatoes.com/m/1021186-them', 93);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Videodrome', 1983, FALSE, 'https://www.rottentomatoes.com/m/videodrome', 83);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Videodrome', 1983, TRUE, 'https://www.rottentomatoes.com/m/videodrome', 83);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Snowpiercer', 2013, TRUE, 'https://www.rottentomatoes.com/m/snowpiercer', 94);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Invasion of the Body Snatchers', 1956, FALSE, 'https://www.rottentomatoes.com/m/1010678-invasion_of_the_body_snatchers', 98);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Predator', 1987, FALSE, 'https://www.rottentomatoes.com/m/predator', 80);
@@ -118,7 +118,7 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'WALL-E', 2008, TRUE, 'https://www.
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'E.T. the Extra-Terrestrial', 1982, FALSE, 'https://www.rottentomatoes.com/m/et_the_extraterrestrial', 99);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Godzilla', 1954, FALSE, 'https://www.rottentomatoes.com/m/godzilla_1956', 93);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Forbidden Planet', 1956, FALSE, 'https://www.rottentomatoes.com/m/forbidden_planet', 96);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, '12 Monkeys', 1995, FALSE, 'https://www.rottentomatoes.com/m/12_monkeys', 88);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, '12 Monkeys', 1995, TRUE, 'https://www.rottentomatoes.com/m/12_monkeys', 88);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Jurassic Park', 1993, FALSE, 'https://www.rottentomatoes.com/m/jurassic_park', 91);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Primer', 2004, TRUE, 'https://www.rottentomatoes.com/m/primer', 73);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Stalker', 1979, FALSE, 'https://www.rottentomatoes.com/m/1043378-stalker', 10);
@@ -147,5 +147,5 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Metropolis', 1927, TRUE, 'https://
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Blade Runner', 1982, TRUE, 'https://www.rottentomatoes.com/m/blade_runner', 88);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Back to the Future', 1985, TRUE, 'https://www.rottentomatoes.com/m/back_to_the_future', 93);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, '2001: A Space Odyssey', 1968, TRUE, 'https://www.rottentomatoes.com/m/2001_a_space_odyssey', 92);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Wars: Episode V - The Empire Strikes Back', 1980, FALSE, 'https://www.rottentomatoes.com/m/star_wars_episode_v_the_empire_strikes_back', 95);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Wars: Episode IV - A New Hope', 1977, FALSE, 'https://www.rottentomatoes.com/m/star_wars_episode_iv_a_new_hope', 93);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Wars: Episode V - The Empire Strikes Back', 1980, TRUE, 'https://www.rottentomatoes.com/m/star_wars_episode_v_the_empire_strikes_back', 95);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Wars: Episode IV - A New Hope', 1977, TRUE, 'https://www.rottentomatoes.com/m/star_wars_episode_iv_a_new_hope', 93);
