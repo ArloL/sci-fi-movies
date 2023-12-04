@@ -15,7 +15,7 @@ public class Movie {
 	}
 
 	public Movie(String title, int year, String url, int tomatoes) {
-		this.id = -1;
+		this.id = 0;
 		this.title = title;
 		this.year = year;
 		this.url = url;
