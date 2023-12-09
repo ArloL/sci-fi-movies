@@ -14,3 +14,6 @@ end_of_line = lf
 
 [pom.xml]
 indent_style = tab
+
+[**.java]
+indent_style = tab
