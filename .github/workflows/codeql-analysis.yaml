@@ -10,7 +10,7 @@ on:
   schedule:
   - cron: '26 17 26 * *'
 env:
-  JAVA_VERSION: 17
+  JAVA_VERSION: 21
 
 jobs:
   debug:
