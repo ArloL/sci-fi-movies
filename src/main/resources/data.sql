@@ -19,7 +19,7 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Plan 9 From Outer Space', 1959, FA
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Rollerball', 1975, FALSE, 'https://www.rottentomatoes.com/m/rollerball', 67);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Silent Running', 1972, FALSE, 'https://www.rottentomatoes.com/m/silent_running', 71);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'War of the Worlds', 2005, TRUE, 'https://www.rottentomatoes.com/m/war_of_the_worlds', 76);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Metropolis', 2001, FALSE, 'https://www.rottentomatoes.com/m/metropolis_2001', 87);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Metropolis', 2001, TRUE, 'https://www.rottentomatoes.com/m/metropolis_2001', 87);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Shin Godzilla', 2016, FALSE, 'https://www.rottentomatoes.com/m/godzilla_resurgence', 86);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Trek III: The Search for Spock', 1984, TRUE, 'https://www.rottentomatoes.com/m/star_trek_iii_the_search_for_spock', 79);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Rogue One: A Star Wars Story', 2016, TRUE, 'https://www.rottentomatoes.com/m/rogue_one_a_star_wars_story', 84);
@@ -90,8 +90,8 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Alphaville', 1965, FALSE, 'https:/
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Them!', 1954, FALSE, 'https://www.rottentomatoes.com/m/1021186-them', 93);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Videodrome', 1983, TRUE, 'https://www.rottentomatoes.com/m/videodrome', 83);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Snowpiercer', 2013, TRUE, 'https://www.rottentomatoes.com/m/snowpiercer', 94);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Invasion of the Body Snatchers', 1956, FALSE, 'https://www.rottentomatoes.com/m/1010678-invasion_of_the_body_snatchers', 97);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Predator', 1987, FALSE, 'https://www.rottentomatoes.com/m/predator', 80);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Invasion of the Body Snatchers', 1956, TRUE, 'https://www.rottentomatoes.com/m/1010678-invasion_of_the_body_snatchers', 97);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Predator', 1987, TRUE, 'https://www.rottentomatoes.com/m/predator', 80);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Planet of the Apes', 1968, TRUE, 'https://www.rottentomatoes.com/m/1016397-planet_of_the_apes', 86);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Mad Max 2: The Road Warrior', 1981, TRUE, 'https://www.rottentomatoes.com/m/mad_max_2_the_road_warrior', 93);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Star Trek', 2009, TRUE, 'https://www.rottentomatoes.com/m/star_trek_11', 94);
@@ -117,11 +117,11 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Ex Machina', 2014, TRUE, 'https://
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'WALL-E', 2008, TRUE, 'https://www.rottentomatoes.com/m/wall_e', 95);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'E.T. the Extra-Terrestrial', 1982, FALSE, 'https://www.rottentomatoes.com/m/et_the_extraterrestrial', 99);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Godzilla', 1954, FALSE, 'https://www.rottentomatoes.com/m/godzilla_1956', 94);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Forbidden Planet', 1956, FALSE, 'https://www.rottentomatoes.com/m/forbidden_planet', 94);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Forbidden Planet', 1956, TRUE, 'https://www.rottentomatoes.com/m/forbidden_planet', 94);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, '12 Monkeys', 1995, TRUE, 'https://www.rottentomatoes.com/m/12_monkeys', 88);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Jurassic Park', 1993, FALSE, 'https://www.rottentomatoes.com/m/jurassic_park', 91);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Primer', 2004, TRUE, 'https://www.rottentomatoes.com/m/primer', 72);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Stalker', 1979, FALSE, 'https://www.rottentomatoes.com/m/1043378-stalker', 10);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Stalker', 1979, FALSE, 'https://www.rottentomatoes.com/m/1043378-stalker', 100);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Gattaca', 1997, TRUE, 'https://www.rottentomatoes.com/m/gattaca', 82);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Ghost in the Shell', 1995, TRUE, 'https://www.rottentomatoes.com/m/ghost_in_the_shell', 95);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Brazil', 1985, TRUE, 'https://www.rottentomatoes.com/m/1003033-brazil', 98);
@@ -132,7 +132,7 @@ INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'RoboCop', 1987, TRUE, 'https://www
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'The Day the Earth Stood Still', 1951, FALSE, 'https://www.rottentomatoes.com/m/1005371-day_the_earth_stood_still', 95);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Akira', 1988, TRUE, 'https://www.rottentomatoes.com/m/akira', 91);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Children of Men', 2006, TRUE, 'https://www.rottentomatoes.com/m/children_of_men', 92);
-INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'The Terminator', 1984, TRUE, 'https://www.rottentomatoes.com/m/terminator', 10);
+INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'The Terminator', 1984, TRUE, 'https://www.rottentomatoes.com/m/terminator', 100);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Edge of Tomorrow', 2014, TRUE, 'https://www.rottentomatoes.com/m/live_die_repeat_edge_of_tomorrow', 91);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'Aliens', 1986, TRUE, 'https://www.rottentomatoes.com/m/1000617-aliens', 94);
 INSERT INTO "PUBLIC"."MOVIE" VALUES(default, 'The Thing', 1982, TRUE, 'https://www.rottentomatoes.com/m/1021244-thing', 85);
