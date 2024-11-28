@@ -72,14 +72,17 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 	}
 
 	private int extractTomatoes(Element e) {
-		String tomatoScore = e.selectFirst(".tMeterScore").text();
+		String tomatoScore = e.selectFirst(".tMeterScore")
+				.text()
+				.trim()
+				.replace("%", "");
 		if (tomatoScore.length() == 0) {
 			return 0;
 		}
 		if (tomatoScore.equalsIgnoreCase("- -")) {
 			return 0;
 		}
-		return Integer.parseInt(tomatoScore.substring(0, 2));
+		return Integer.parseInt(tomatoScore);
 	}
 
 	private String extractTitle(Element e) {
