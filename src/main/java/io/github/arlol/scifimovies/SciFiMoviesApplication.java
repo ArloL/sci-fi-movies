@@ -79,7 +79,7 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 		if (tomatoScore.equalsIgnoreCase("- -")) {
 			return 0;
 		}
-		return Integer.valueOf(tomatoScore.substring(0, 2));
+		return Integer.parseInt(tomatoScore.substring(0, 2));
 	}
 
 	private String extractTitle(Element e) {
@@ -93,7 +93,7 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 		} else {
 			year = year.substring(1, 5);
 		}
-		return Integer.valueOf(year);
+		return Integer.parseInt(year);
 	}
 
 }
