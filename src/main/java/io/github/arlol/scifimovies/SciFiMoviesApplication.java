@@ -76,7 +76,7 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 		if (tomatoScore.length() == 0) {
 			return 0;
 		}
-		if (tomatoScore.equalsIgnoreCase("--")) {
+		if (tomatoScore.equalsIgnoreCase("- -")) {
 			return 0;
 		}
 		return Integer.valueOf(tomatoScore.substring(0, 2));
