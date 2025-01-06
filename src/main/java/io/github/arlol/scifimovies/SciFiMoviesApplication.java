@@ -64,7 +64,7 @@ public class SciFiMoviesApplication implements CommandLineRunner {
 				.filter(s -> s.startsWith("INSERT"))
 				.map(s -> s.replaceAll("VALUES\\([0-9]+,", "VALUES(default,"))
 				.toList();
-		Files.write(Paths.get("./src/main/resources/data.sql"), data);
+		Files.write(Path.of("./src/main/resources/data.sql"), data);
 	}
 
 	private String extractUrl(Element e) {
