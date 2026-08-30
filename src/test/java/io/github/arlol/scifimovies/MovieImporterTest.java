@@ -6,10 +6,35 @@ import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.boot.test.context.runner.ApplicationContextRunner;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 class MovieImporterTest {
 
 	private final MovieImporter importer = new MovieImporter(null, null);
+
+	/**
+	 * MovieImporter has two constructors, so Spring needs the @Autowired hint
+	 * to pick the production one.
+	 */
+	@Test
+	void springCanStillBuildTheBean() {
+		new ApplicationContextRunner()
+				.withBean(
+						MovieRepository.class,
+						() -> Mockito.mock(MovieRepository.class)
+				)
+				.withBean(
+						JdbcTemplate.class,
+						() -> Mockito.mock(JdbcTemplate.class)
+				)
+				.withUserConfiguration(MovieImporter.class)
+				.run(
+						context -> assertThat(context)
+								.hasSingleBean(MovieImporter.class)
+				);
+	}
 
 	/**
 	 * Mirrors the markup Rotten Tomatoes puts inside div.article_movie_title

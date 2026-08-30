@@ -1,9 +1,12 @@
 package io.github.arlol.scifimovies;
 
+import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import org.jsoup.Jsoup;
@@ -11,6 +14,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,16 +24,32 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * Scrapes Rotten Tomatoes and rewrites data.sql. Excluded from the test profile
- * because it needs the network and writes into the source tree.
+ * because the production bean needs the network and writes into the source
+ * tree.
  */
 @Component
 @Profile("!test")
 public class MovieImporter implements CommandLineRunner {
 
+	private static final String GUIDE_URL = "https://editorial.rottentomatoes.com/guide/best-sci-fi-movies-of-all-time/";
+
+	private static final Path DATA_SQL = Path
+			.of("./src/main/resources/data.sql");
+
 	private static Logger LOG = LoggerFactory.getLogger(MovieImporter.class);
 
 	private final MovieRepository movieRepository;
 	private final JdbcTemplate template;
+	private final Supplier<Document> documentSupplier;
+	private final Path output;
+
+	@Autowired
+	public MovieImporter(
+			MovieRepository movieRepository,
+			JdbcTemplate template
+	) {
+		this(movieRepository, template, MovieImporter::fetch, DATA_SQL);
+	}
 
 	@SuppressFBWarnings(
 			value = "EI_EXPOSE_REP2",
@@ -37,17 +57,27 @@ public class MovieImporter implements CommandLineRunner {
 	)
 	public MovieImporter(
 			MovieRepository movieRepository,
-			JdbcTemplate template
+			JdbcTemplate template,
+			Supplier<Document> documentSupplier,
+			Path output
 	) {
 		this.movieRepository = movieRepository;
 		this.template = template;
+		this.documentSupplier = documentSupplier;
+		this.output = output;
+	}
+
+	private static Document fetch() {
+		try {
+			return Jsoup.connect(GUIDE_URL).timeout(30_000).get();
+		} catch (IOException e) {
+			throw new UncheckedIOException(e);
+		}
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		Document doc = Jsoup.connect(
-				"https://editorial.rottentomatoes.com/guide/best-sci-fi-movies-of-all-time/"
-		).timeout(30_000).get();
+		Document doc = documentSupplier.get();
 		List<Movie> movies = doc.select("div.article_movie_title h2")
 				.stream()
 				.map(e -> {
@@ -76,7 +106,7 @@ public class MovieImporter implements CommandLineRunner {
 				.filter(s -> s.startsWith("INSERT"))
 				.map(s -> s.replaceAll("VALUES\\([0-9]+,", "VALUES(default,"))
 				.toList();
-		Files.write(Path.of("./src/main/resources/data.sql"), data);
+		Files.write(output, data);
 	}
 
 	/**
