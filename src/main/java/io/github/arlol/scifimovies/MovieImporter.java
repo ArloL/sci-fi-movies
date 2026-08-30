@@ -11,11 +11,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * Scrapes Rotten Tomatoes and rewrites data.sql. Excluded from the test profile
@@ -27,10 +28,20 @@ public class MovieImporter implements CommandLineRunner {
 
 	private static Logger LOG = LoggerFactory.getLogger(MovieImporter.class);
 
-	@Autowired
-	MovieRepository movieRepository;
-	@Autowired
-	JdbcTemplate template;
+	private final MovieRepository movieRepository;
+	private final JdbcTemplate template;
+
+	@SuppressFBWarnings(
+			value = "EI_EXPOSE_REP2",
+			justification = "Spring beans are shared by design"
+	)
+	public MovieImporter(
+			MovieRepository movieRepository,
+			JdbcTemplate template
+	) {
+		this.movieRepository = movieRepository;
+		this.template = template;
+	}
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -72,18 +83,18 @@ public class MovieImporter implements CommandLineRunner {
 	 * The scrape is meaningless if Rotten Tomatoes drops one of these elements,
 	 * so fail loudly rather than dereferencing a null from selectFirst.
 	 */
-	private Element required(Element e, String cssQuery) {
+	Element required(Element e, String cssQuery) {
 		return Objects.requireNonNull(
 				e.selectFirst(cssQuery),
 				() -> "no element matched " + cssQuery
 		);
 	}
 
-	private String extractUrl(Element e) {
+	String extractUrl(Element e) {
 		return required(e, "a").attr("href");
 	}
 
-	private int extractTomatoes(Element e) {
+	int extractTomatoes(Element e) {
 		String tomatoScore = required(e, ".tMeterScore").text()
 				.trim()
 				.replace("%", "");
@@ -96,11 +107,11 @@ public class MovieImporter implements CommandLineRunner {
 		return Integer.parseInt(tomatoScore);
 	}
 
-	private String extractTitle(Element e) {
+	String extractTitle(Element e) {
 		return required(e, "a").text();
 	}
 
-	private int extractYear(Element e) {
+	int extractYear(Element e) {
 		String year = required(e, "span.start-year").text();
 		if (year.length() == 2) {
 			year = "0";
