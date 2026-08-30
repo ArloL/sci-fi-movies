@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,6 +19,9 @@ import org.springframework.test.context.ActiveProfiles;
 @SpringBootTest
 @ActiveProfiles("test")
 class MovieImporterRunTest {
+
+	private static final Pattern NUMERIC_ID = Pattern
+			.compile("VALUES\\([0-9]+,");
 
 	/**
 	 * The last entry has no title so it exercises the filter, the middle one
@@ -104,7 +108,7 @@ class MovieImporterRunTest {
 		List<String> lines = Files.readAllLines(output);
 		assertThat(lines).isNotEmpty()
 				.allMatch(line -> line.startsWith("INSERT"))
-				.noneMatch(line -> line.matches(".*VALUES\\([0-9]+,.*"))
+				.noneMatch(line -> NUMERIC_ID.matcher(line).find())
 				.anyMatch(
 						line -> line.contains("VALUES(default,")
 								&& line.contains("2001: A Space Odyssey")
