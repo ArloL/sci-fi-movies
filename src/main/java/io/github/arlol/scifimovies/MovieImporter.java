@@ -31,7 +31,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 @Profile("!test")
 public class MovieImporter implements CommandLineRunner {
 
-	private static final String GUIDE_URL = "https://editorial.rottentomatoes.com/guide/best-sci-fi-movies-of-all-time/";
+	private static final String GUIDE_URL = "https://editorial.rottentomatoes.com/guide/essential-sci-fi-movies-of-all-time/";
 
 	private static final Path DATA_SQL = Path
 			.of("./src/main/resources/data.sql");
@@ -78,8 +78,9 @@ public class MovieImporter implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Document doc = documentSupplier.get();
-		List<Movie> movies = doc.select("div.article_movie_title h2")
+		List<Movie> movies = doc.select("div.meta-data-wrapper")
 				.stream()
+				.filter(e -> !extractTitle(e).isEmpty())
 				.map(e -> {
 					return new Movie(
 							extractTitle(e),
@@ -88,7 +89,6 @@ public class MovieImporter implements CommandLineRunner {
 							extractTomatoes(e)
 					);
 				})
-				.filter(m -> m.getTitle().length() > 0)
 				.collect(Collectors.toList());
 		for (Movie movie : movies) {
 			movieRepository
@@ -121,28 +121,25 @@ public class MovieImporter implements CommandLineRunner {
 	}
 
 	String extractUrl(Element e) {
-		return required(e, "a").attr("href");
+		return required(e, "a.meta-title").attr("href");
 	}
 
 	int extractTomatoes(Element e) {
 		String tomatoScore = required(e, ".tMeterScore").text()
-				.trim()
-				.replace("%", "");
-		if (tomatoScore.length() == 0) {
-			return 0;
-		}
-		if (tomatoScore.equalsIgnoreCase("- -")) {
+				.replaceAll("\\D", "");
+		if (tomatoScore.isEmpty()) {
 			return 0;
 		}
 		return Integer.parseInt(tomatoScore);
 	}
 
 	String extractTitle(Element e) {
-		return required(e, "a").text();
+		// Rotten Tomatoes switched to en dashes, data.sql keys on hyphens
+		return required(e, "a.meta-title").text().replace('\u2013', '-');
 	}
 
 	int extractYear(Element e) {
-		String year = required(e, "span.start-year").text();
+		String year = required(e, "span.meta-year").text();
 		if (year.length() == 2) {
 			year = "0";
 		} else {

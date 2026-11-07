@@ -24,30 +24,39 @@ class MovieImporterRunTest {
 			.compile("VALUES\\([0-9]+,");
 
 	/**
-	 * The last entry has no title so it exercises the filter, the middle one
-	 * already exists in data.sql so it exercises the update branch.
+	 * The last entry mirrors Rotten Tomatoes' empty placeholder (no title, no
+	 * year) so it exercises the filter, the middle one already exists in
+	 * data.sql so it exercises the update branch.
 	 */
 	private static final String GUIDE = """
-			<div class="article_movie_title">
-				<h2>
-					<a href="https://example.org/m/2001">2001: A Space Odyssey</a>
-					<span class="start-year">(1968)</span>
+			<div class="meta-data-wrapper">
+				<div class="meta-title-wrapper">
+					<a class="meta-title" href="https://example.org/m/2001">2001: A Space Odyssey</a>
+					<span class="meta-year">(1968)</span>
+				</div>
+				<div class="meta-scores-wrapper">
 					<span class="tMeterScore">92%</span>
-				</h2>
+					<span class="tMeterScore">50%</span>
+				</div>
 			</div>
-			<div class="article_movie_title">
-				<h2>
-					<a href="https://example.org/m/the_endless">The Endless</a>
-					<span class="start-year">(2017)</span>
+			<div class="meta-data-wrapper">
+				<div class="meta-title-wrapper">
+					<a class="meta-title" href="https://example.org/m/the_endless">The Endless</a>
+					<span class="meta-year">(2017)</span>
+				</div>
+				<div class="meta-scores-wrapper">
 					<span class="tMeterScore">88%</span>
-				</h2>
+					<span class="tMeterScore">50%</span>
+				</div>
 			</div>
-			<div class="article_movie_title">
-				<h2>
-					<a href="https://example.org/m/unnamed"></a>
-					<span class="start-year">(1999)</span>
+			<div class="meta-data-wrapper">
+				<div class="meta-title-wrapper">
+					<a class="meta-title" href="https://example.org/m/unnamed"></a>
+				</div>
+				<div class="meta-scores-wrapper">
 					<span class="tMeterScore">- -</span>
-				</h2>
+					<span class="tMeterScore">50%</span>
+				</div>
 			</div>
 			""";
 

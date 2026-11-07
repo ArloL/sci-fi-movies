@@ -37,18 +37,22 @@ class MovieImporterTest {
 	}
 
 	/**
-	 * Mirrors the markup Rotten Tomatoes puts inside div.article_movie_title
-	 * h2.
+	 * Mirrors the markup Rotten Tomatoes puts inside div.meta-data-wrapper.
 	 */
 	private static Element title(String year, String tomatoes) {
 		return Jsoup
 				.parseBodyFragment(
 						"""
-								<h2>
-									<a href="https://example.org/m/2001">2001: A Space Odyssey</a>
-									<span class="start-year">%s</span>
-									<span class="tMeterScore">%s</span>
-								</h2>
+								<div class="meta-data-wrapper">
+									<div class="meta-title-wrapper">
+										<a class="meta-title" href="https://example.org/m/2001">2001: A Space Odyssey</a>
+										<span class="meta-year">%s</span>
+									</div>
+									<div class="meta-scores-wrapper">
+										<span class="tMeterScore">%s</span>
+										<span class="tMeterScore">50%%</span>
+									</div>
+								</div>
 								"""
 								.formatted(year, tomatoes)
 				)
@@ -60,6 +64,15 @@ class MovieImporterTest {
 	void extractTitle_readsTheAnchorText() {
 		assertThat(importer.extractTitle(title("(1968)", "92%")))
 				.isEqualTo("2001: A Space Odyssey");
+	}
+
+	@Test
+	void extractTitle_replacesEnDashesWithHyphens() {
+		Element element = title("(1977)", "93%");
+		element.selectFirst("a")
+				.text("Star Wars: Episode IV \u2013 A New Hope");
+		assertThat(importer.extractTitle(element))
+				.isEqualTo("Star Wars: Episode IV - A New Hope");
 	}
 
 	@Test
@@ -93,6 +106,12 @@ class MovieImporterTest {
 	@Test
 	void extractTomatoes_isZeroForTheDashPlaceholder() {
 		assertThat(importer.extractTomatoes(title("(1968)", "- -"))).isZero();
+	}
+
+	@Test
+	void extractTomatoes_isZeroForTheEnDashPlaceholder() {
+		assertThat(importer.extractTomatoes(title("(1968)", "\u2013 \u2013")))
+				.isZero();
 	}
 
 	@Test
